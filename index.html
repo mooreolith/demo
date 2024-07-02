@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home - Graph App</title>
+    <link rel="stylesheet" href="./src/index.css">
+  </head>
+  <body>
+
+    <!-- Introduction -->
+
+    <h1>Graph App</h1>
+    <p>Graph App is a web application that allows you to create, share, and view 3D graph animations.</p>
+    <p>Create a <a href="/new">new account</a> to get started. (TODO: This app accepts Google ID and plan email).</p>
+  
+    <!-- Table of Contents -->
+
+    <h2>Features and Examples</h2>
+
+    <ol>
+      <li><h4>Features</h4>
+        <ol>
+          <li><a href="#graph-manipulation">Adding and Removing Vertices</a></li>
+          <li><a href="#vertex-selection">Vertex Selection</a></li>
+          <li><a href="#graph-manipulation-ii">Adding and Removing Edges</a></li>
+          <li><a href="#texture">Vertex Color and Texture</a></li>
+          <li><a href="#size">Vertex Size</a></li>
+          <li><a href="#label">Vertex Labels</a></li>
+          <li><a href="#invisible">Invisible Edges</a></li>
+        </ol>
+      </li>
+      <li><h4>Examples of Basic Shapes</h4>
+        <ol>
+          <li><a href="#square">Square</a></li>
+          <li><a href="#cube">Cube</a></li>
+          <li><a href="#heart">Heart</a></li>
+          <li><a href="#pyramid">Pyramid</a></li>
+        </ol>
+      </li>
+    </ol>
+
+    <!-- End of Table of Contents -->
+    <!-- Graph Features -->
+
+    <h2>Features</h2>
+
+    <h3>Adding and Removing Vertices</h3>
+    <p>This fancy phrase just means that you can add and remove vertices on the go, instead of having to know the entire graph upfront. As you change the graph structure, the layout adjusts automagically.</p>
+    <p>Click the buttons below to add and remove vertices.</p>
+    <div id="graph-manipulation">
+      <button class="add-vertex" onclick="addVertex()">Add Vertex</button>
+      <button class="remove-vertex" onclick="removeVertex()">Remove Vertex</button>
+      <br />
+      <script type="module" class="add-vertex preview" src="/src/features/graph-manipulation-i.mjs"> </script>
+    </div>
+
+    <h3>Vertex Selection</h3>
+    <p>Click a vertex to select it; hold down the CTRL-key to select multiple vertices.</p>
+    <output id="selection-output"></output>
+    <div id="vertex-selection">
+      <script type="module" class="vertex-selection preview" src="/src/features/vertex-selection.mjs"></script>
+    </div>
+
+    <h3>Adding and Removing Edges</h3>
+    <p>Select two vertices, then click Add Edge to connect them with an edge.</p>
+    <div id="graph-manipulation-ii">
+      <button class="add-edge" onclick="addEdge()">Add Edge</button>
+      <button class="remove-edge" onclick="removeEdge()">Remove Edge</button>
+      <br />
+      <script type="module" class="graph-manipulation-ii preview" src="/src/features/graph-manipulation-ii.mjs"></script>
+    </div>
+
+    <h3>Vertex Color and Face</h3>
+    <p>
+      You can change the color and face attribute of a vertex using the setVertexOption('&lt;id&gt;', 'color' or 'face', value) function.
+      Setting color undoes the face attribute, and setting a picture using the face attribute unsets the color attribute. 
+    </p>
+    <div id="texture">
+      <input class="change-color" type="color" value="#ff4500">
+      <button class="change-color" onclick="changeColor()">Change Color</button>
+      <button class="change-face" onclick="changeFace()">Change Face</button>
+      <br />
+      <script type="module" class="texture preview" src="/src/features/change-color.mjs"></script>
+    </div>
+
+    <h3>Vertex Size</h3>
+    <p>Likewise, you can change the size of a vertex using graph.setVertexOption('&lt;id&gt;', 'color', colorValue) function.</p>
+    <div id="size">
+      <input class="change-size" onchange="sizeChanged()" type="range" min="1" max="10" value="5">
+      <br />
+      <script type="module" class="size preview" src="/src/features/vertex-size.mjs"></script>
+    </div>
+
+    <h3>Vertex Labels</h3>
+    <p>To create a label for a vertex, you can pass in either an html string, or an html element (at least in theory, it's assigned via innerHTML)</p>
+    <div id="label">
+      <script type="module" class="label preview" src="/src/features/label.mjs"></script>
+    </div>
+
+    <h3>Invisible Edges</h3>
+    <p>To create an invisible edge between two vertices, pass <pre>{invisible: true}</pre> to the </p>
+    <div id="invisible">
+      <button class="toggle-invisible" onclick="toggleInvisible()">Toggle Invisible Edge</button>
+      <script type="module" class="invisible preview" src="/src/features/invisible.mjs"></script>
+    </div>
+
+    <!-- End of Graph Features -->
+    <!-- Graph Shapes -->
+
+    <h2>Examples of Basic Shapes</h2>
+    <h3>Square</h3>
+    <div id="square">
+      <script type="module" class="square preview" src="/src/shapes/square.mjs"></script>
+    </div>
+
+    <h3>Cube</h3>
+    <div id="cube">
+      <script type="module" class="cube preview" src="/src/shapes/cube.mjs"></script>
+    </div>
+
+    <h3>Heart</h3>
+    <div id="heart">
+      <script type="module" class="heart preview" src="/src/shapes/heart.mjs"></script>
+    </div>
+    
+    <h3>Pyramid</h3>
+    <div id="pyramid">
+      <script type="module" class="pyramid preview" src="/src/shapes/pyramid.mjs"></script>
+    </div>
+
+    <!-- End of Graph Shapes -->
+
+    <script type="module" class="noshow">
+      document.querySelectorAll('script.preview').forEach((preview) => {
+        console.log(preview.src)
+        fetch(preview.src).then(resp => {
+          resp.body.getReader().read().then(({ value, done }) => {
+            preview.innerHTML = new TextDecoder().decode(value)
+          })
+        })
+      })
+    </script>
+
+  </body>
+</html>

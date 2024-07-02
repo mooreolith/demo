@@ -1,0 +1,52 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding-left: 200px;
+  background-color: white
+}
+
+canvas {
+  float: left;
+  display: inline-block;
+  border: 1px solid lightgray;
+}
+
+script {
+  margin-left: 20px;
+  display: inline-block;
+  font-family: monospace;
+  white-space: pre-wrap;
+  width: 500px;
+}
+
+script.preview {
+  height: 150px;
+  overflow: ellipsis;
+}
+
+script.noshow {
+  display: none;
+}
+
+code {
+  display: inline-block;
+  margin-left: 20px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  width: 500px;
+  height: auto;
+}
+
+button, input {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+p {
+  width: calc(250px + 500px);
+}
