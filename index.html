@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Home - Graph App</title>
-    <link rel="stylesheet" href="./src/index.css">
+    <link rel="stylesheet" href="/demo/src/index.css">
   </head>
   <body>
 
@@ -50,14 +50,14 @@
       <button class="add-vertex" onclick="addVertex()">Add Vertex</button>
       <button class="remove-vertex" onclick="removeVertex()">Remove Vertex</button>
       <br />
-      <script type="module" class="add-vertex preview" src="/src/features/graph-manipulation-i.mjs"> </script>
+      <script type="module" class="add-vertex preview" src="/demo/src/features/graph-manipulation-i.mjs"> </script>
     </div>
 
     <h3>Vertex Selection</h3>
     <p>Click a vertex to select it; hold down the CTRL-key to select multiple vertices.</p>
     <output id="selection-output"></output>
     <div id="vertex-selection">
-      <script type="module" class="vertex-selection preview" src="/src/features/vertex-selection.mjs"></script>
+      <script type="module" class="vertex-selection preview" src="/demo/src/features/vertex-selection.mjs"></script>
     </div>
 
     <h3>Adding and Removing Edges</h3>
@@ -66,7 +66,7 @@
       <button class="add-edge" onclick="addEdge()">Add Edge</button>
       <button class="remove-edge" onclick="removeEdge()">Remove Edge</button>
       <br />
-      <script type="module" class="graph-manipulation-ii preview" src="/src/features/graph-manipulation-ii.mjs"></script>
+      <script type="module" class="graph-manipulation-ii preview" src="/demo/src/features/graph-manipulation-ii.mjs"></script>
     </div>
 
     <h3>Vertex Color and Face</h3>
@@ -79,7 +79,7 @@
       <button class="change-color" onclick="changeColor()">Change Color</button>
       <button class="change-face" onclick="changeFace()">Change Face</button>
       <br />
-      <script type="module" class="texture preview" src="/src/features/change-color.mjs"></script>
+      <script type="module" class="texture preview" src="/demo/src/features/change-color.mjs"></script>
     </div>
 
     <h3>Vertex Size</h3>
@@ -87,20 +87,20 @@
     <div id="size">
       <input class="change-size" onchange="sizeChanged()" type="range" min="1" max="10" value="5">
       <br />
-      <script type="module" class="size preview" src="/src/features/vertex-size.mjs"></script>
+      <script type="module" class="size preview" src="/demo/src/features/vertex-size.mjs"></script>
     </div>
 
     <h3>Vertex Labels</h3>
     <p>To create a label for a vertex, you can pass in either an html string, or an html element (at least in theory, it's assigned via innerHTML)</p>
     <div id="label">
-      <script type="module" class="label preview" src="/src/features/label.mjs"></script>
+      <script type="module" class="label preview" src=/demo/src/features/label.mjs"></script>
     </div>
 
     <h3>Invisible Edges</h3>
     <p>To create an invisible edge between two vertices, pass <pre>{invisible: true}</pre> to the </p>
     <div id="invisible">
       <button class="toggle-invisible" onclick="toggleInvisible()">Toggle Invisible Edge</button>
-      <script type="module" class="invisible preview" src="/src/features/invisible.mjs"></script>
+      <script type="module" class="invisible preview" src="/demo/src/features/invisible.mjs"></script>
     </div>
 
     <!-- End of Graph Features -->
@@ -109,22 +109,22 @@
     <h2>Examples of Basic Shapes</h2>
     <h3>Square</h3>
     <div id="square">
-      <script type="module" class="square preview" src="/src/shapes/square.mjs"></script>
+      <script type="module" class="square preview" src="/demo/src/shapes/square.mjs"></script>
     </div>
 
     <h3>Cube</h3>
     <div id="cube">
-      <script type="module" class="cube preview" src="/src/shapes/cube.mjs"></script>
+      <script type="module" class="cube preview" src="/demo/src/shapes/cube.mjs"></script>
     </div>
 
     <h3>Heart</h3>
     <div id="heart">
-      <script type="module" class="heart preview" src="/src/shapes/heart.mjs"></script>
+      <script type="module" class="heart preview" src="/demo/src/shapes/heart.mjs"></script>
     </div>
     
     <h3>Pyramid</h3>
     <div id="pyramid">
-      <script type="module" class="pyramid preview" src="/src/shapes/pyramid.mjs"></script>
+      <script type="module" class="pyramid preview" src="/demo/src/shapes/pyramid.mjs"></script>
     </div>
 
     <!-- End of Graph Shapes -->

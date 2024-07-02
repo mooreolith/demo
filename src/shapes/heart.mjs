@@ -1,4 +1,4 @@
-import { SceneGraph } from '/src/scene-graph.mjs';
+import { SceneGraph } from '/demo/src/scene-graph.mjs';
 
 const heartDiv = document.querySelector('#heart');
 const heartGraph = new SceneGraph({width: 250, height: 150});
