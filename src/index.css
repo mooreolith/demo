@@ -50,3 +50,7 @@ button, input {
 p {
   width: calc(250px + 500px);
 }
+
+code.inline {
+   display: inline;
+}
